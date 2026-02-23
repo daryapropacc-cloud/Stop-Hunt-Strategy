@@ -33,27 +33,3 @@ This repository now includes a production-oriented architecture scaffold so we c
 ## Next step
 
 Share your detailed stop-hunt strategy rules (entry, exit, stop, target, filters, timeframe, symbols), and I will implement them into this architecture and set up the first full backtest report.
-## Data sourcing review
-
-A detailed review of options to collect 1H OHLCV data for the top 50 crypto assets is available in `docs/DATA_SOURCES_REVIEW.md`.
-
-
-## Fetch CoinMarketCap OHLCV (Daily + 1H)
-
-This project includes a script to pull the last 3 years of OHLCV for:
-- `#btcusdt.p`
-- `#ethusdt.p`
-- `#solusdt.p`
-- `#xrpusdt.p`
-- `#dogeusdt.p`
-
-Using CoinMarketCap (mapped by base symbols BTC/ETH/SOL/XRP/DOGE):
-
-```bash
-export CMC_API_KEY="<your_api_key>"
-PYTHONPATH=src python scripts/fetch_cmc_ohlcv.py --years 3 --output-dir data/raw/cmc
-```
-
-Output files are written as parquet files like:
-- `data/raw/cmc/btc_daily.parquet`
-- `data/raw/cmc/btc_hourly.parquet`
